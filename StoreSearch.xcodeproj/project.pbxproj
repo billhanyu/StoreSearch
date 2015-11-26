@@ -13,6 +13,7 @@
 		00490CE61C06335E00960994 /* StoreSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 00490CE41C06335E00960994 /* StoreSearch.xcdatamodeld */; };
 		00490CE81C06335E00960994 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00490CE71C06335E00960994 /* Assets.xcassets */; };
 		00490CEB1C06335E00960994 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00490CE91C06335E00960994 /* LaunchScreen.storyboard */; };
+		00490CF31C07854B00960994 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00490CF21C07854B00960994 /* SearchResult.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		00490CE71C06335E00960994 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00490CEA1C06335E00960994 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00490CEC1C06335E00960994 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00490CF21C07854B00960994 /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				00490CDD1C06335E00960994 /* AppDelegate.swift */,
 				00490CDF1C06335E00960994 /* SearchViewController.swift */,
 				00490CE11C06335E00960994 /* Main.storyboard */,
+				00490CF21C07854B00960994 /* SearchResult.swift */,
 				00490CE71C06335E00960994 /* Assets.xcassets */,
 				00490CE91C06335E00960994 /* LaunchScreen.storyboard */,
 				00490CEC1C06335E00960994 /* Info.plist */,
@@ -140,6 +143,7 @@
 			files = (
 				00490CE01C06335E00960994 /* SearchViewController.swift in Sources */,
 				00490CDE1C06335E00960994 /* AppDelegate.swift in Sources */,
+				00490CF31C07854B00960994 /* SearchResult.swift in Sources */,
 				00490CE61C06335E00960994 /* StoreSearch.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +292,7 @@
 				00490CF11C06335E00960994 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

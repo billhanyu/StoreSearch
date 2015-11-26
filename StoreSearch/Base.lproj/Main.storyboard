@@ -15,11 +15,72 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a8u-HW-0KZ">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="dxA-Po-Mnz"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="z7P-2M-yWu"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" placeholder="App name, artist, song, album, e-book" translatesAutoresizingMaskIntoConstraints="NO" id="w5C-t5-Un2">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="IU5-co-4hQ"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="w5C-t5-Un2" secondAttribute="trailing" id="7tB-b2-d9g"/>
+                            <constraint firstItem="w5C-t5-Un2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="P6W-vp-MKt"/>
+                            <constraint firstItem="a8u-HW-0KZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="SFj-2Y-r4B"/>
+                            <constraint firstItem="a8u-HW-0KZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Wc1-0B-oeI"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="a8u-HW-0KZ" secondAttribute="bottom" id="cb6-8b-ujf"/>
+                            <constraint firstAttribute="trailing" secondItem="a8u-HW-0KZ" secondAttribute="trailing" id="kaP-ma-ff0"/>
+                            <constraint firstItem="w5C-t5-Un2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="n72-h4-hcD"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="a8u-HW-0KZ"/>
+                                <exclude reference="w5C-t5-Un2"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="cb6-8b-ujf"/>
+                                <exclude reference="7tB-b2-d9g"/>
+                                <exclude reference="P6W-vp-MKt"/>
+                                <exclude reference="n72-h4-hcD"/>
+                                <exclude reference="SFj-2Y-r4B"/>
+                                <exclude reference="Wc1-0B-oeI"/>
+                                <exclude reference="kaP-ma-ff0"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="a8u-HW-0KZ"/>
+                                <include reference="w5C-t5-Un2"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="cb6-8b-ujf"/>
+                                <include reference="7tB-b2-d9g"/>
+                                <include reference="P6W-vp-MKt"/>
+                                <include reference="n72-h4-hcD"/>
+                                <include reference="SFj-2Y-r4B"/>
+                                <include reference="Wc1-0B-oeI"/>
+                                <include reference="kaP-ma-ff0"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="w5C-t5-Un2" id="p8K-o4-wih"/>
+                        <outlet property="tableView" destination="a8u-HW-0KZ" id="KkR-LC-OiJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="588" y="461"/>
         </scene>
     </scenes>
 </document>
