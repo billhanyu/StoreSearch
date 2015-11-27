@@ -19,6 +19,7 @@
 		00490CF51C078CE700960994 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00490CF41C078CE700960994 /* SearchResultCell.xib */; settings = {ASSET_TAGS = (); }; };
 		00490CF71C0790CF00960994 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00490CF61C0790CF00960994 /* SearchResultCell.swift */; settings = {ASSET_TAGS = (); }; };
 		00490CF91C0792E400960994 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00490CF81C0792E400960994 /* NothingFoundCell.xib */; settings = {ASSET_TAGS = (); }; };
+		00E3C2151C08C623003CB7AF /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E3C2141C08C623003CB7AF /* UIImageView+DownloadImage.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		00490CF41C078CE700960994 /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		00490CF61C0790CF00960994 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		00490CF81C0792E400960994 /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
+		00E3C2141C08C623003CB7AF /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				00490CF21C07854B00960994 /* SearchResult.swift */,
 				00490CF61C0790CF00960994 /* SearchResultCell.swift */,
 				00490CDF1C06335E00960994 /* SearchViewController.swift */,
+				00E3C2141C08C623003CB7AF /* UIImageView+DownloadImage.swift */,
 				00490CE71C06335E00960994 /* Assets.xcassets */,
 				0020753B1C0813DE00FD9D80 /* LoadingCell.xib */,
 				00490CF81C0792E400960994 /* NothingFoundCell.xib */,
@@ -159,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00E3C2151C08C623003CB7AF /* UIImageView+DownloadImage.swift in Sources */,
 				0020753E1C08142D00FD9D80 /* LoadingCell.swift in Sources */,
 				00490CE01C06335E00960994 /* SearchViewController.swift in Sources */,
 				00490CDE1C06335E00960994 /* AppDelegate.swift in Sources */,

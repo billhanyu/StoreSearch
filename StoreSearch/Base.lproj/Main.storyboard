@@ -32,14 +32,38 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="IU5-co-4hQ"/>
                                 </connections>
                             </searchBar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idm-Pj-fEz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem id="ZhH-cV-Bgw">
+                                        <nil key="title"/>
+                                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" segmentControlStyle="bar" selectedSegmentIndex="0" id="g7k-QY-PP4">
+                                            <rect key="frame" x="-60" y="-14" width="121" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="All"/>
+                                                <segment title="Music"/>
+                                                <segment title="Software"/>
+                                                <segment title="E-books"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="segmentChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="vb4-Be-Wxj"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="w5C-t5-Un2" secondAttribute="trailing" id="7tB-b2-d9g"/>
+                            <constraint firstItem="idm-Pj-fEz" firstAttribute="top" secondItem="w5C-t5-Un2" secondAttribute="bottom" id="IbU-br-jpB"/>
+                            <constraint firstAttribute="trailing" secondItem="idm-Pj-fEz" secondAttribute="trailing" id="MyW-kQ-032"/>
                             <constraint firstItem="w5C-t5-Un2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="P6W-vp-MKt"/>
                             <constraint firstItem="a8u-HW-0KZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="SFj-2Y-r4B"/>
                             <constraint firstItem="a8u-HW-0KZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Wc1-0B-oeI"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="a8u-HW-0KZ" secondAttribute="bottom" id="cb6-8b-ujf"/>
+                            <constraint firstItem="idm-Pj-fEz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="k9g-rI-b0a"/>
                             <constraint firstAttribute="trailing" secondItem="a8u-HW-0KZ" secondAttribute="trailing" id="kaP-ma-ff0"/>
                             <constraint firstItem="w5C-t5-Un2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="n72-h4-hcD"/>
                         </constraints>
@@ -47,35 +71,44 @@
                             <mask key="subviews">
                                 <exclude reference="a8u-HW-0KZ"/>
                                 <exclude reference="w5C-t5-Un2"/>
+                                <exclude reference="idm-Pj-fEz"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="cb6-8b-ujf"/>
-                                <exclude reference="7tB-b2-d9g"/>
-                                <exclude reference="P6W-vp-MKt"/>
-                                <exclude reference="n72-h4-hcD"/>
                                 <exclude reference="SFj-2Y-r4B"/>
                                 <exclude reference="Wc1-0B-oeI"/>
                                 <exclude reference="kaP-ma-ff0"/>
+                                <exclude reference="7tB-b2-d9g"/>
+                                <exclude reference="P6W-vp-MKt"/>
+                                <exclude reference="n72-h4-hcD"/>
+                                <exclude reference="IbU-br-jpB"/>
+                                <exclude reference="MyW-kQ-032"/>
+                                <exclude reference="k9g-rI-b0a"/>
+                                <exclude reference="cb6-8b-ujf"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="a8u-HW-0KZ"/>
                                 <include reference="w5C-t5-Un2"/>
+                                <include reference="idm-Pj-fEz"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="cb6-8b-ujf"/>
-                                <include reference="7tB-b2-d9g"/>
-                                <include reference="P6W-vp-MKt"/>
-                                <include reference="n72-h4-hcD"/>
                                 <include reference="SFj-2Y-r4B"/>
                                 <include reference="Wc1-0B-oeI"/>
                                 <include reference="kaP-ma-ff0"/>
+                                <include reference="7tB-b2-d9g"/>
+                                <include reference="P6W-vp-MKt"/>
+                                <include reference="n72-h4-hcD"/>
+                                <include reference="IbU-br-jpB"/>
+                                <include reference="MyW-kQ-032"/>
+                                <include reference="k9g-rI-b0a"/>
+                                <include reference="cb6-8b-ujf"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="w5C-t5-Un2" id="p8K-o4-wih"/>
+                        <outlet property="segmentedControl" destination="g7k-QY-PP4" id="fTd-7T-5Sr"/>
                         <outlet property="tableView" destination="a8u-HW-0KZ" id="KkR-LC-OiJ"/>
                     </connections>
                 </viewController>

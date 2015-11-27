@@ -12,6 +12,8 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
     var searchResults = [SearchResult]()
     var hasSearched = false
     var isLoading = false
@@ -26,7 +28,7 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 108, left: 0, bottom: 0, right: 0)
         
         var cellNib = UINib(nibName: TableViewCellIdentifiers.searchResultCell, bundle: nil)
         tableView.registerNib(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.searchResultCell)
@@ -40,9 +42,21 @@ class SearchViewController: UIViewController {
         searchBar.becomeFirstResponder()
     }
     
-    func urlWithSearchText(searchText: String) -> NSURL {
+    @IBAction func segmentChanged(sender: UISegmentedControl) {
+        performSearch()
+    }
+    
+    func urlWithSearchText(searchText: String, category: Int) -> NSURL {
+        let entityName: String
+        switch category {
+            case 1: entityName = "musicTrack"
+            case 2: entityName = "software"
+            case 3: entityName = "ebook"
+            default: entityName = ""
+        }
+        
         let escapedSearchText = searchText.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
-        let urlString = String(format:"https://itunes.apple.com/search?term=%@", escapedSearchText)
+        let urlString = String(format:"https://itunes.apple.com/search?term=%@&limit=200&entity=%@", escapedSearchText, entityName)
         let url = NSURL(string: urlString)
         return url!
     }
@@ -178,32 +192,7 @@ class SearchViewController: UIViewController {
         presentViewController(alert, animated: true, completion: nil)
     }
     
-    func kindForDisplay(kind: String) -> String {
-        switch kind {
-            case "album": return "Album"
-            case "audiobook": return "Audio Book"
-            case "book": return "Book"
-            case "ebook": return "E-Book"
-            case "feature-movie": return "Movie"
-            case "music-video": return "Music Video"
-            case "podcast": return "Podcast"
-            case "software": return "App"
-            case "song": return "Song"
-            case "tv-episode": return "TV Episode"
-            default: return kind
-        }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-}
-
-extension SearchViewController: UISearchBarDelegate {
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func performSearch() {
         if (!searchBar.text!.isEmpty) {
             dataTask?.cancel()
             
@@ -212,8 +201,8 @@ extension SearchViewController: UISearchBarDelegate {
             isLoading = true
             searchResults = [SearchResult]()
             tableView.reloadData()
-        
-            let url = urlWithSearchText(searchBar.text!)
+            
+            let url = urlWithSearchText(searchBar.text!, category: segmentedControl.selectedSegmentIndex)
             let session = NSURLSession.sharedSession()
             dataTask = session.dataTaskWithURL(url, completionHandler: {
                 data, response, error in
@@ -242,12 +231,25 @@ extension SearchViewController: UISearchBarDelegate {
                     self.tableView.reloadData()
                     self.showNetworkError()
                 }
-            })
+                })
             
             dataTask?.resume()
         }
     }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+}
+
+extension SearchViewController: UISearchBarDelegate {
     
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        performSearch()
+    }
+
     func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
         return .TopAttached
     }
@@ -280,13 +282,7 @@ extension SearchViewController: UITableViewDataSource {
         else {
             let cell = tableView.dequeueReusableCellWithIdentifier(TableViewCellIdentifiers.searchResultCell) as! SearchResultCell
             let searchResult = searchResults[indexPath.row]
-            cell.nameLabel!.text = searchResults[indexPath.row].name
-            if (searchResult.artistName.isEmpty) {
-                    cell.artistNameLabel.text = "Unknown"
-            }
-            else {
-                cell.artistNameLabel.text = String(format: "%@ (%@)", searchResult.artistName, kindForDisplay(searchResult.kind))
-            }
+            cell.configureForSearchResult(searchResult)
             return cell
         }
     }
