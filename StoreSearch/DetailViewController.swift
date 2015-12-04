@@ -22,6 +22,13 @@ class DetailViewController: UIViewController {
     
     var downloadTask: NSURLSessionDownloadTask?
     
+    enum AnimationStyle {
+        case Slide
+        case Fade
+    }
+    
+    var dismissAnimationStyle = AnimationStyle.Fade
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         modalPresentationStyle = .Custom
@@ -41,6 +48,8 @@ class DetailViewController: UIViewController {
         if (searchResult != nil) {
             updateUI()
         }
+        
+        view.backgroundColor = UIColor.clearColor()
     }
     
     deinit {
@@ -89,6 +98,7 @@ class DetailViewController: UIViewController {
     }
 
     func close() {
+        dismissAnimationStyle = .Slide
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -108,6 +118,19 @@ extension DetailViewController: UIViewControllerTransitioningDelegate {
         return DimmingPresentationController(
             presentedViewController: presented,
             presentingViewController: presenting)
+    }
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return BounceAnimationController()
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        switch dismissAnimationStyle {
+        case .Slide:
+            return SlideOutAnimationController()
+        case .Fade:
+            return FadeOutAnimationController()
+        }
     }
 }
 
