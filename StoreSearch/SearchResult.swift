@@ -25,16 +25,16 @@ class SearchResult {
     
     func kindForDisplay() -> String {
         switch kind {
-        case "album": return "Album"
-        case "audiobook": return "Audio Book"
-        case "book": return "Book"
-        case "ebook": return "E-Book"
-        case "feature-movie": return "Movie"
-        case "music-video": return "Music Video"
-        case "podcast": return "Podcast"
-        case "software": return "App"
-        case "song": return "Song"
-        case "tv-episode": return "TV Episode"
+        case "album": return NSLocalizedString("", comment: "Localized kind: ")
+        case "audiobook": return NSLocalizedString("", comment: "Localized kind: ")
+        case "book": return NSLocalizedString("", comment: "Localized kind: ")
+        case "ebook": return NSLocalizedString("", comment: "Localized kind: ")
+        case "feature-movie": return NSLocalizedString("", comment: "Localized kind: ")
+        case "music-video": return NSLocalizedString("", comment: "Localized kind: ")
+        case "podcast": return NSLocalizedString("", comment: "Localized kind: ")
+        case "software": return NSLocalizedString("", comment: "Localized kind: ")
+        case "song": return NSLocalizedString("", comment: "Localized kind: ")
+        case "tv-episode": return NSLocalizedString("", comment: "Localized kind: ")
         default: return kind
         }
     }
