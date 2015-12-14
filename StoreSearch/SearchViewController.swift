@@ -73,6 +73,7 @@ class SearchViewController: UIViewController {
                     self.showNetworkError()
                 }
                 self.tableView.reloadData()
+                self.landscapeViewController?.searchResultsReceived()
             })
         
             tableView.reloadData()
@@ -128,6 +129,9 @@ class SearchViewController: UIViewController {
             coordinator.animateAlongsideTransition({ _ in
                 controller.view.alpha = 0
             }, completion: { _ in
+                if self.presentedViewController != nil {
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
                 controller.view.removeFromSuperview()
                 controller.removeFromParentViewController()
                 self.landscapeViewController = nil
